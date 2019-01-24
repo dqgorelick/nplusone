@@ -1,0 +1,265 @@
+body {
+  background-color: black; }
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  position: relative; }
+
+path,
+line {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  mix-blend-mode: lighten; }
+
+.animating-pulse {
+  animation: animatePulse 3.5s infinite linear; }
+
+@keyframes animatePulse {
+  0%, 100% {
+    fill: rgba(255, 0, 0, 0); }
+  10%, 90% {
+    fill: rgba(255, 0, 0, 0.5); } }
+
+.animating-pulse-var1 {
+  animation: animatePulseVar1 2s infinite linear; }
+
+@keyframes animatePulseVar1 {
+  0%, 100% {
+    fill: rgba(0, 0, 255, 0); }
+  33%, 66% {
+    fill: blue; } }
+
+.animating-strobe-diag-left {
+  animation: strobeDiagLeft 0.59s infinite linear; }
+
+.animating-strobe-half-diag-left {
+  animation: strobeDiagLeft 0.59s infinite linear; }
+
+@keyframes strobeDiagLeft {
+  0%, 100% {
+    fill: url(#diagonal-stripe-left);
+    fill-opacity: 1.0; } }
+
+.animating-strobe-diag-right {
+  animation: strobeDiagRight 0.59s infinite linear; }
+
+.animating-strobe-half-diag-right {
+  animation: strobeDiagRight 0.59s infinite linear; }
+
+@keyframes strobeDiagRight {
+  0%, 100% {
+    fill: url(#diagonal-stripe-right);
+    fill-opacity: 1.0; } }
+
+.animating-1 {
+  animation: lineDrawPulse-1 4.22191s infinite linear;
+  stroke-dashoffset: 503.20834; }
+
+@keyframes lineDrawPulse-1 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 633.28607;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 633.28607 0;
+    fill: rgba(255, 0, 0, 0); }
+  50% {
+    stroke: red;
+    stroke-dasharray: 633.28607 0;
+    fill: red; }
+  75% {
+    stroke: red;
+    stroke-dasharray: 633.28607 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 633.28607 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-2 {
+  animation: lineDrawPulse-2 3.67899s infinite linear;
+  stroke-dashoffset: 557.50188; }
+
+@keyframes lineDrawPulse-2 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 551.84796;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 551.84796 0;
+    fill: rgba(255, 0, 0, 0); }
+  50% {
+    stroke: red;
+    stroke-dasharray: 551.84796 0;
+    fill: red; }
+  75% {
+    stroke: red;
+    stroke-dasharray: 551.84796 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 551.84796 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-3 {
+  animation: lineDrawPulse-3 3.07943s infinite linear;
+  stroke-dashoffset: 654.29901; }
+
+@keyframes lineDrawPulse-3 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 461.9151;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 461.9151 0;
+    fill: rgba(255, 0, 0, 0); }
+  50% {
+    stroke: red;
+    stroke-dasharray: 461.9151 0;
+    fill: red; }
+  75% {
+    stroke: red;
+    stroke-dasharray: 461.9151 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 461.9151 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-4 {
+  animation: lineDrawPulse-4 1.90519s infinite linear;
+  stroke-dashoffset: 28.89914; }
+
+@keyframes lineDrawPulse-4 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 285.77802;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 285.77802 0;
+    fill: rgba(255, 0, 0, 0); }
+  50% {
+    stroke: red;
+    stroke-dasharray: 285.77802 0;
+    fill: red; }
+  75% {
+    stroke: red;
+    stroke-dasharray: 285.77802 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 285.77802 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-5 {
+  animation: lineDrawPulse-5 4.22222s infinite linear;
+  stroke-dashoffset: 734.75744; }
+
+@keyframes lineDrawPulse-5 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 633.3335;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 633.3335 0;
+    fill: rgba(255, 0, 0, 0); }
+  50% {
+    stroke: red;
+    stroke-dasharray: 633.3335 0;
+    fill: red; }
+  75% {
+    stroke: red;
+    stroke-dasharray: 633.3335 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 633.3335 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-6 {
+  animation: lineDrawPulse-6 3.67891s infinite linear;
+  stroke-dashoffset: 803.58035; }
+
+@keyframes lineDrawPulse-6 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 551.83716;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 551.83716 0;
+    fill: rgba(255, 0, 0, 0); }
+  50% {
+    stroke: red;
+    stroke-dasharray: 551.83716 0;
+    fill: red; }
+  75% {
+    stroke: red;
+    stroke-dasharray: 551.83716 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 551.83716 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-7 {
+  animation: lineDrawPulse-7 3.07952s infinite linear;
+  stroke-dashoffset: 27.78777; }
+
+@keyframes lineDrawPulse-7 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 461.92734;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 461.92734 0;
+    fill: rgba(255, 0, 0, 0); }
+  50% {
+    stroke: red;
+    stroke-dasharray: 461.92734 0;
+    fill: red; }
+  75% {
+    stroke: red;
+    stroke-dasharray: 461.92734 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 461.92734 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-8 {
+  animation: lineDrawPulse-8 1.90512s infinite linear;
+  stroke-dashoffset: 369.26419; }
+
+@keyframes lineDrawPulse-8 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 285.76788;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 285.76788 0;
+    fill: rgba(255, 0, 0, 0); }
+  50% {
+    stroke: red;
+    stroke-dasharray: 285.76788 0;
+    fill: red; }
+  75% {
+    stroke: red;
+    stroke-dasharray: 285.76788 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 285.76788 0;
+    fill: rgba(255, 0, 0, 0); } }

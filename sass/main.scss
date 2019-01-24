@@ -1,0 +1,137 @@
+body {
+  background-color: black;
+}
+
+$pulse-interval-var1: 2.0s;
+$pulse-interval: 3.5s;
+$strobe-interval: 0.59s;
+
+$timeFactor: 3;
+$length-1: 1266.5721435546875;
+$length-2: 1103.6959228515625;
+$length-3: 923.8302001953125;
+$length-4: 571.5560302734375;
+$length-5: 1266.6669921875;
+$length-6: 1103.67431640625;
+$length-7: 923.8546752929688;
+$length-8: 571.5357666015625;
+
+.wrapper {
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+
+path,
+line {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  mix-blend-mode: lighten;
+
+}
+
+.animating-pulse {
+  animation: animatePulse $pulse-interval infinite linear;
+}
+
+@keyframes animatePulse {
+  0%, 100% {
+    fill: rgba(255,0,0,0);
+  }
+  10%, 90% {
+    fill: rgba(255,0,0,0.5);
+  }
+}
+
+
+.animating-pulse-var1 {
+  animation: animatePulseVar1 $pulse-interval-var1 infinite linear;
+ }
+
+@keyframes animatePulseVar1 {
+  0%, 100% {
+    fill: rgba(0,0,255,0);
+  }
+  33%, 66% {
+    fill: rgba(0,0,255,1);
+  }
+}
+
+
+.animating-strobe-diag-left {
+  animation: strobeDiagLeft $strobe-interval infinite linear;
+}
+
+.animating-strobe-half-diag-left {
+  animation: strobeDiagLeft #{$strobe-interval} infinite linear;
+}
+
+@keyframes strobeDiagLeft {
+  0%, 100% {
+    fill: url(#diagonal-stripe-left);
+    fill-opacity: 1.0;
+  }
+}
+
+.animating-strobe-diag-right {
+  animation: strobeDiagRight $strobe-interval infinite linear;
+}
+
+.animating-strobe-half-diag-right {
+  animation: strobeDiagRight #{$strobe-interval} infinite linear;
+}
+
+@keyframes strobeDiagRight {
+  0%, 100% {
+    fill: url(#diagonal-stripe-right);
+    fill-opacity: 1.0;
+  }
+}
+
+@mixin linePulse($id, $length) {
+  .animating-#{$id} {
+    animation: lineDrawPulse-#{$id} #{$length/(100 * $timeFactor)}s infinite linear;
+    stroke-dashoffset: random()*$length;
+  }
+
+  @keyframes lineDrawPulse-#{$id} {
+      0%, 100% {
+        stroke: rgba(255,0,0,1);
+        stroke-dasharray: 0 #{$length/2};
+        fill: rgba(255,0,0,0);
+      }
+      25% {
+        stroke: rgba(255,0,0,1);
+        stroke-dasharray: #{$length/2} 0;
+        fill: rgba(255,0,0,0);
+      }
+      50% {
+        stroke: rgba(255,0,0,1);
+        stroke-dasharray: #{$length/2} 0;
+        fill: rgba(255,0,0,1);
+      }
+      75% {
+        stroke: rgba(255,0,0,1);
+        stroke-dasharray: #{$length/2} 0;
+        fill: rgba(255,0,0,1);
+      }
+      100% {
+        stroke: rgba(255,0,0,0);
+        stroke-dasharray: #{$length/2} 0;
+        fill: rgba(255,0,0,0);
+      }
+  }
+}
+
+@include linePulse(1, $length-1);
+@include linePulse(2, $length-2);
+@include linePulse(3, $length-3);
+@include linePulse(4, $length-4);
+@include linePulse(5, $length-5);
+@include linePulse(6, $length-6);
+@include linePulse(7, $length-7);
+@include linePulse(8, $length-8);
