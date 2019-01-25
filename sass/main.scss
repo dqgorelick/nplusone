@@ -2,11 +2,11 @@ body {
   background-color: black;
 }
 
-$pulse-interval-var1: 2.0s;
-$pulse-interval: 3.5s;
+$pulse-interval-var1: 4.0s;
+$pulse-interval: 3.6s;
 $strobe-interval: 0.59s;
 
-$timeFactor: 3;
+$timeFactor: 1.5;
 $length-1: 1266.5721435546875;
 $length-2: 1103.6959228515625;
 $length-3: 923.8302001953125;
@@ -17,7 +17,7 @@ $length-7: 923.8546752929688;
 $length-8: 571.5357666015625;
 
 .wrapper {
-  width: 80%;
+  width: 75%;
   margin: 0 auto;
   position: relative;
 }
@@ -26,38 +26,74 @@ path,
 line {
   fill: none;
   stroke: rgba(0, 0, 0, 0);
-  stroke-width: 4;
+  stroke-width: 5;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-miterlimit: 10;
-  mix-blend-mode: lighten;
-
+  mix-blend-mode: difference;
 }
 
 .animating-pulse {
   animation: animatePulse $pulse-interval infinite linear;
 }
 
+.animating-pulse-blue {
+  animation: animatePulseBlue $pulse-interval infinite linear;
+}
+
+.animating-pulse-green {
+  animation: animatePulseGreen $pulse-interval infinite linear;
+}
+
 @keyframes animatePulse {
   0%, 100% {
-    fill: rgba(255,0,0,0);
+    fill: rgba(200,0,50,0);
   }
-  10%, 90% {
-    fill: rgba(255,0,0,0.5);
+  40%, 60% {
+    fill: rgba(200,0,50,1);
   }
 }
 
+@keyframes animatePulseBlue {
+  0%, 100% {
+    fill: rgba(0,50,200,0);
+  }
+  40%, 60% {
+    fill: rgba(0,50,200,1);
+  }
+}
+@keyframes animatePulseGreen {
+  0%, 100% {
+    fill: rgba(175,0,175,0);
+  }
+  40%, 60% {
+    fill: rgba(175,0,175,1);
+  }
+}
 
 .animating-pulse-var1 {
   animation: animatePulseVar1 $pulse-interval-var1 infinite linear;
- }
+}
 
 @keyframes animatePulseVar1 {
   0%, 100% {
-    fill: rgba(0,0,255,0);
+    fill: rgba(175,0,175,0);
   }
-  33%, 66% {
-    fill: rgba(0,0,255,1);
+  33%, 80% {
+    fill: rgba(175,0,175,1);
+  }
+}
+
+.animating-pulse-var2 {
+  animation: animatePulseVar2 $pulse-interval-var1 infinite linear;
+}
+
+@keyframes animatePulseVar2 {
+  0%, 100% {
+    fill: rgba(0,50,200,0);
+  }
+  33%, 80% {
+    fill: rgba(0,50,200,1);
   }
 }
 
@@ -70,9 +106,24 @@ line {
   animation: strobeDiagLeft #{$strobe-interval} infinite linear;
 }
 
+.animating-strobe-diag-thick {
+  animation: strobeDiagThick $strobe-interval infinite linear;
+}
+
+.animating-strobe-half-diag-thick {
+  animation: strobeDiagThick #{$strobe-interval} infinite linear;
+}
+
 @keyframes strobeDiagLeft {
   0%, 100% {
     fill: url(#diagonal-stripe-left);
+    fill-opacity: 1.0;
+  }
+}
+
+@keyframes strobeDiagThick {
+  0%, 100% {
+    fill: url(#diagonal-stripe-thick);
     fill-opacity: 1.0;
   }
 }
@@ -100,29 +151,29 @@ line {
 
   @keyframes lineDrawPulse-#{$id} {
       0%, 100% {
-        stroke: rgba(255,0,0,1);
+        stroke: rgba(200,0,50,1);
         stroke-dasharray: 0 #{$length/2};
-        fill: rgba(255,0,0,0);
+        fill: rgba(200,0,50,0);
       }
       25% {
-        stroke: rgba(255,0,0,1);
+        stroke: rgba(200,0,50,1);
         stroke-dasharray: #{$length/2} 0;
-        fill: rgba(255,0,0,0);
+        fill: rgba(200,0,50,0);
       }
-      50% {
-        stroke: rgba(255,0,0,1);
+      40% {
+        stroke: rgba(200,0,50,1);
         stroke-dasharray: #{$length/2} 0;
-        fill: rgba(255,0,0,1);
+        fill: rgba(200,0,50,1);
       }
-      75% {
-        stroke: rgba(255,0,0,1);
+      90% {
+        stroke: rgba(200,0,50,1);
         stroke-dasharray: #{$length/2} 0;
-        fill: rgba(255,0,0,1);
+        fill: rgba(200,0,50,1);
       }
       100% {
-        stroke: rgba(255,0,0,0);
+        stroke: rgba(200,0,50,0);
         stroke-dasharray: #{$length/2} 0;
-        fill: rgba(255,0,0,0);
+        fill: rgba(200,0,50,0);
       }
   }
 }

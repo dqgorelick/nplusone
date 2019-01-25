@@ -1,11 +1,11 @@
 $(document).ready(function() {
-    var VARIATION_1 = '1'
+    var COMBO = 'combo'
     var PULSE = 'PULSE';
     var LINE = 'LINE';
     var STROBE = 'STROBE';
     var STROBE2 = 'STROBE2';
-    var MODES = [VARIATION_1, PULSE, LINE, STROBE, STROBE2];
-    var MODE = VARIATION_1;
+    var MODES = [COMBO, PULSE, LINE, STROBE, STROBE2];
+    var MODE = COMBO;
 
     var INTERACTIVE = false;
     var PATH_NUMBER = 8;
@@ -14,8 +14,9 @@ $(document).ready(function() {
     var mode = urlParams.get('mode');
     if (mode) {
         switch (mode) {
-            case '1':
-                MODE = VARIATION_1;
+            case 'combo':
+                MODE = COMBO;
+                break;
             case 'pulse':
                 MODE = PULSE;
                 break;
@@ -65,14 +66,27 @@ $(document).ready(function() {
         });
     }
 
+    function triggerAnimationLine(pathNumber, className) {
+        var path = $('.shape-' + pathNumber);
+        path.addClass(className);
+        path.on('animationiteration webkitAnimationIteration oanimationiteration MSAnimationIteration', function(e) {
+            path.off();
+            $(this).removeClass(className);
+            clearActivePath(pathNumber);
+            addAnimationLine();
+        });
+    }
+
     function addAnimationLine() {
         var pathNumber = pickInactivePath();
         var className = 'animating-' + pathNumber;
-        triggerAnimation(pathNumber, className);
+        triggerAnimationLine(pathNumber, className);
     };
 
     function getStripeType(number) {
         switch (number) {
+            case -1:
+                return 'diag-thick';
             case 0:
                 return 'diag-left';
             case 1:
@@ -87,8 +101,9 @@ $(document).ready(function() {
     var stripeType = 0;
 
     function addAnimationStrobe(half) {
+        // stripeType = -1;
         stripeType++;
-        if (stripeType > 1) {
+        if (stripeType > 0) {
             stripeType = 0;
         }
         var className = 'animating-strobe-' + getStripeType(stripeType);
@@ -98,13 +113,31 @@ $(document).ready(function() {
         triggerAnimation(pickInactivePath(), className);
     }
 
+    var pulseColor = 0;
+
     function addAnimationPulse() {
         var className = 'animating-pulse';
+        if (pulseColor === 0) {
+            className = 'animating-pulse-blue';
+        } if (pulseColor === 1) {
+            className = 'animating-pulse-green';
+        }
+        pulseColor++;
+        if (pulseColor > 2) {
+            pulseColor = 0;
+        }
         triggerAnimation(pickInactivePath(), className);
     }
 
     function addAnimationPulseVar1() {
         var className = 'animating-pulse-var1';
+        if (pulseColor === 0) {
+            className = 'animating-pulse-var2';
+        }
+        pulseColor++;
+        if (pulseColor > 2) {
+            pulseColor = 0;
+        }
         triggerAnimation(pickInactivePath(), className);
     }
 
@@ -139,30 +172,22 @@ $(document).ready(function() {
 
     if (!INTERACTIVE) {
         switch (MODE) {
-            case VARIATION_1:
+            case COMBO:
                 addAnimationPulseVar1();
                 setInterval(function() {
                     addAnimationPulseVar1();
-                }, 1500);
-                createRandomLine();
-                setInterval(function() {
-                    createRandomLine();
-                }, 3000);
+                }, 3500);
+                addAnimationLine();
                 break;
             case PULSE:
                 setInterval(function() {
                   addAnimationPulse();
-                }, 1000);
+                }, 1200);
                 break;
             case LINE:
                 createRandomLine();
                 createRandomLine();
                 createRandomLine();
-                setInterval(function() {
-                    createRandomLine();
-                    createRandomLine();
-                    createRandomLine();
-                }, randomLineTime());
                 break;
             case STROBE:
                 setInterval(function() {

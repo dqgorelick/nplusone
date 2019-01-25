@@ -2,7 +2,7 @@ body {
   background-color: black; }
 
 .wrapper {
-  width: 80%;
+  width: 75%;
   margin: 0 auto;
   position: relative; }
 
@@ -10,29 +10,56 @@ path,
 line {
   fill: none;
   stroke: rgba(0, 0, 0, 0);
-  stroke-width: 4;
+  stroke-width: 5;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-miterlimit: 10;
-  mix-blend-mode: lighten; }
+  mix-blend-mode: difference; }
 
 .animating-pulse {
-  animation: animatePulse 3.5s infinite linear; }
+  animation: animatePulse 3.6s infinite linear; }
+
+.animating-pulse-blue {
+  animation: animatePulseBlue 3.6s infinite linear; }
+
+.animating-pulse-green {
+  animation: animatePulseGreen 3.6s infinite linear; }
 
 @keyframes animatePulse {
   0%, 100% {
-    fill: rgba(255, 0, 0, 0); }
-  10%, 90% {
-    fill: rgba(255, 0, 0, 0.5); } }
+    fill: rgba(200, 0, 50, 0); }
+  40%, 60% {
+    fill: #c80032; } }
+
+@keyframes animatePulseBlue {
+  0%, 100% {
+    fill: rgba(0, 50, 200, 0); }
+  40%, 60% {
+    fill: #0032c8; } }
+
+@keyframes animatePulseGreen {
+  0%, 100% {
+    fill: rgba(175, 0, 175, 0); }
+  40%, 60% {
+    fill: #af00af; } }
 
 .animating-pulse-var1 {
-  animation: animatePulseVar1 2s infinite linear; }
+  animation: animatePulseVar1 4s infinite linear; }
 
 @keyframes animatePulseVar1 {
   0%, 100% {
-    fill: rgba(0, 0, 255, 0); }
-  33%, 66% {
-    fill: blue; } }
+    fill: rgba(175, 0, 175, 0); }
+  33%, 80% {
+    fill: #af00af; } }
+
+.animating-pulse-var2 {
+  animation: animatePulseVar2 4s infinite linear; }
+
+@keyframes animatePulseVar2 {
+  0%, 100% {
+    fill: rgba(0, 50, 200, 0); }
+  33%, 80% {
+    fill: #0032c8; } }
 
 .animating-strobe-diag-left {
   animation: strobeDiagLeft 0.59s infinite linear; }
@@ -40,9 +67,20 @@ line {
 .animating-strobe-half-diag-left {
   animation: strobeDiagLeft 0.59s infinite linear; }
 
+.animating-strobe-diag-thick {
+  animation: strobeDiagThick 0.59s infinite linear; }
+
+.animating-strobe-half-diag-thick {
+  animation: strobeDiagThick 0.59s infinite linear; }
+
 @keyframes strobeDiagLeft {
   0%, 100% {
     fill: url(#diagonal-stripe-left);
+    fill-opacity: 1.0; } }
+
+@keyframes strobeDiagThick {
+  0%, 100% {
+    fill: url(#diagonal-stripe-thick);
     fill-opacity: 1.0; } }
 
 .animating-strobe-diag-right {
@@ -57,209 +95,209 @@ line {
     fill-opacity: 1.0; } }
 
 .animating-1 {
-  animation: lineDrawPulse-1 4.22191s infinite linear;
-  stroke-dashoffset: 503.20834; }
+  animation: lineDrawPulse-1 8.44381s infinite linear;
+  stroke-dashoffset: 1119.24295; }
 
 @keyframes lineDrawPulse-1 {
   0%, 100% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 0 633.28607;
-    fill: rgba(255, 0, 0, 0); }
+    fill: rgba(200, 0, 50, 0); }
   25% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 633.28607 0;
-    fill: rgba(255, 0, 0, 0); }
-  50% {
-    stroke: red;
+    fill: rgba(200, 0, 50, 0); }
+  40% {
+    stroke: #c80032;
     stroke-dasharray: 633.28607 0;
-    fill: red; }
-  75% {
-    stroke: red;
+    fill: #c80032; }
+  90% {
+    stroke: #c80032;
     stroke-dasharray: 633.28607 0;
-    fill: red; }
+    fill: #c80032; }
   100% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: rgba(200, 0, 50, 0);
     stroke-dasharray: 633.28607 0;
-    fill: rgba(255, 0, 0, 0); } }
+    fill: rgba(200, 0, 50, 0); } }
 
 .animating-2 {
-  animation: lineDrawPulse-2 3.67899s infinite linear;
-  stroke-dashoffset: 557.50188; }
+  animation: lineDrawPulse-2 7.35797s infinite linear;
+  stroke-dashoffset: 205.06987; }
 
 @keyframes lineDrawPulse-2 {
   0%, 100% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 0 551.84796;
-    fill: rgba(255, 0, 0, 0); }
+    fill: rgba(200, 0, 50, 0); }
   25% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 551.84796 0;
-    fill: rgba(255, 0, 0, 0); }
-  50% {
-    stroke: red;
+    fill: rgba(200, 0, 50, 0); }
+  40% {
+    stroke: #c80032;
     stroke-dasharray: 551.84796 0;
-    fill: red; }
-  75% {
-    stroke: red;
+    fill: #c80032; }
+  90% {
+    stroke: #c80032;
     stroke-dasharray: 551.84796 0;
-    fill: red; }
+    fill: #c80032; }
   100% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: rgba(200, 0, 50, 0);
     stroke-dasharray: 551.84796 0;
-    fill: rgba(255, 0, 0, 0); } }
+    fill: rgba(200, 0, 50, 0); } }
 
 .animating-3 {
-  animation: lineDrawPulse-3 3.07943s infinite linear;
-  stroke-dashoffset: 654.29901; }
+  animation: lineDrawPulse-3 6.15887s infinite linear;
+  stroke-dashoffset: 770.46665; }
 
 @keyframes lineDrawPulse-3 {
   0%, 100% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 0 461.9151;
-    fill: rgba(255, 0, 0, 0); }
+    fill: rgba(200, 0, 50, 0); }
   25% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 461.9151 0;
-    fill: rgba(255, 0, 0, 0); }
-  50% {
-    stroke: red;
+    fill: rgba(200, 0, 50, 0); }
+  40% {
+    stroke: #c80032;
     stroke-dasharray: 461.9151 0;
-    fill: red; }
-  75% {
-    stroke: red;
+    fill: #c80032; }
+  90% {
+    stroke: #c80032;
     stroke-dasharray: 461.9151 0;
-    fill: red; }
+    fill: #c80032; }
   100% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: rgba(200, 0, 50, 0);
     stroke-dasharray: 461.9151 0;
-    fill: rgba(255, 0, 0, 0); } }
+    fill: rgba(200, 0, 50, 0); } }
 
 .animating-4 {
-  animation: lineDrawPulse-4 1.90519s infinite linear;
-  stroke-dashoffset: 28.89914; }
+  animation: lineDrawPulse-4 3.81037s infinite linear;
+  stroke-dashoffset: 495.13979; }
 
 @keyframes lineDrawPulse-4 {
   0%, 100% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 0 285.77802;
-    fill: rgba(255, 0, 0, 0); }
+    fill: rgba(200, 0, 50, 0); }
   25% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 285.77802 0;
-    fill: rgba(255, 0, 0, 0); }
-  50% {
-    stroke: red;
+    fill: rgba(200, 0, 50, 0); }
+  40% {
+    stroke: #c80032;
     stroke-dasharray: 285.77802 0;
-    fill: red; }
-  75% {
-    stroke: red;
+    fill: #c80032; }
+  90% {
+    stroke: #c80032;
     stroke-dasharray: 285.77802 0;
-    fill: red; }
+    fill: #c80032; }
   100% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: rgba(200, 0, 50, 0);
     stroke-dasharray: 285.77802 0;
-    fill: rgba(255, 0, 0, 0); } }
+    fill: rgba(200, 0, 50, 0); } }
 
 .animating-5 {
-  animation: lineDrawPulse-5 4.22222s infinite linear;
-  stroke-dashoffset: 734.75744; }
+  animation: lineDrawPulse-5 8.44445s infinite linear;
+  stroke-dashoffset: 924.83223; }
 
 @keyframes lineDrawPulse-5 {
   0%, 100% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 0 633.3335;
-    fill: rgba(255, 0, 0, 0); }
+    fill: rgba(200, 0, 50, 0); }
   25% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 633.3335 0;
-    fill: rgba(255, 0, 0, 0); }
-  50% {
-    stroke: red;
+    fill: rgba(200, 0, 50, 0); }
+  40% {
+    stroke: #c80032;
     stroke-dasharray: 633.3335 0;
-    fill: red; }
-  75% {
-    stroke: red;
+    fill: #c80032; }
+  90% {
+    stroke: #c80032;
     stroke-dasharray: 633.3335 0;
-    fill: red; }
+    fill: #c80032; }
   100% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: rgba(200, 0, 50, 0);
     stroke-dasharray: 633.3335 0;
-    fill: rgba(255, 0, 0, 0); } }
+    fill: rgba(200, 0, 50, 0); } }
 
 .animating-6 {
-  animation: lineDrawPulse-6 3.67891s infinite linear;
-  stroke-dashoffset: 803.58035; }
+  animation: lineDrawPulse-6 7.35783s infinite linear;
+  stroke-dashoffset: 1019.75016; }
 
 @keyframes lineDrawPulse-6 {
   0%, 100% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 0 551.83716;
-    fill: rgba(255, 0, 0, 0); }
+    fill: rgba(200, 0, 50, 0); }
   25% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 551.83716 0;
-    fill: rgba(255, 0, 0, 0); }
-  50% {
-    stroke: red;
+    fill: rgba(200, 0, 50, 0); }
+  40% {
+    stroke: #c80032;
     stroke-dasharray: 551.83716 0;
-    fill: red; }
-  75% {
-    stroke: red;
+    fill: #c80032; }
+  90% {
+    stroke: #c80032;
     stroke-dasharray: 551.83716 0;
-    fill: red; }
+    fill: #c80032; }
   100% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: rgba(200, 0, 50, 0);
     stroke-dasharray: 551.83716 0;
-    fill: rgba(255, 0, 0, 0); } }
+    fill: rgba(200, 0, 50, 0); } }
 
 .animating-7 {
-  animation: lineDrawPulse-7 3.07952s infinite linear;
-  stroke-dashoffset: 27.78777; }
+  animation: lineDrawPulse-7 6.15903s infinite linear;
+  stroke-dashoffset: 146.50721; }
 
 @keyframes lineDrawPulse-7 {
   0%, 100% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 0 461.92734;
-    fill: rgba(255, 0, 0, 0); }
+    fill: rgba(200, 0, 50, 0); }
   25% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 461.92734 0;
-    fill: rgba(255, 0, 0, 0); }
-  50% {
-    stroke: red;
+    fill: rgba(200, 0, 50, 0); }
+  40% {
+    stroke: #c80032;
     stroke-dasharray: 461.92734 0;
-    fill: red; }
-  75% {
-    stroke: red;
+    fill: #c80032; }
+  90% {
+    stroke: #c80032;
     stroke-dasharray: 461.92734 0;
-    fill: red; }
+    fill: #c80032; }
   100% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: rgba(200, 0, 50, 0);
     stroke-dasharray: 461.92734 0;
-    fill: rgba(255, 0, 0, 0); } }
+    fill: rgba(200, 0, 50, 0); } }
 
 .animating-8 {
-  animation: lineDrawPulse-8 1.90512s infinite linear;
-  stroke-dashoffset: 369.26419; }
+  animation: lineDrawPulse-8 3.81024s infinite linear;
+  stroke-dashoffset: 15.98366; }
 
 @keyframes lineDrawPulse-8 {
   0%, 100% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 0 285.76788;
-    fill: rgba(255, 0, 0, 0); }
+    fill: rgba(200, 0, 50, 0); }
   25% {
-    stroke: red;
+    stroke: #c80032;
     stroke-dasharray: 285.76788 0;
-    fill: rgba(255, 0, 0, 0); }
-  50% {
-    stroke: red;
+    fill: rgba(200, 0, 50, 0); }
+  40% {
+    stroke: #c80032;
     stroke-dasharray: 285.76788 0;
-    fill: red; }
-  75% {
-    stroke: red;
+    fill: #c80032; }
+  90% {
+    stroke: #c80032;
     stroke-dasharray: 285.76788 0;
-    fill: red; }
+    fill: #c80032; }
   100% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: rgba(200, 0, 50, 0);
     stroke-dasharray: 285.76788 0;
-    fill: rgba(255, 0, 0, 0); } }
+    fill: rgba(200, 0, 50, 0); } }
