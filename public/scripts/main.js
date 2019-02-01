@@ -4,6 +4,8 @@ $(document).ready(function() {
     var LINE = 'LINE';
     var STROBE = 'STROBE';
     var STROBE2 = 'STROBE2';
+    var VARIBLE_TIME = 'VARIBLE_TIME';
+    var VARIABLE_LINES = 'VARIABLE_LINES';
     var MODES = [COMBO, PULSE, LINE, STROBE, STROBE2];
     var MODE = COMBO;
 
@@ -14,6 +16,12 @@ $(document).ready(function() {
     var mode = urlParams.get('mode');
     if (mode) {
         switch (mode) {
+            case 'changing':
+                MODE = VARIBLE_TIME;
+                break;
+            case 'lines':
+                MODE = VARIABLE_LINES;
+                break;
             case 'combo':
                 MODE = COMBO;
                 break;
@@ -103,7 +111,7 @@ $(document).ready(function() {
     function addAnimationStrobe(half) {
         // stripeType = -1;
         stripeType++;
-        if (stripeType > 0) {
+        if (stripeType > 1) {
             stripeType = 0;
         }
         var className = 'animating-strobe-' + getStripeType(stripeType);
@@ -113,14 +121,15 @@ $(document).ready(function() {
         triggerAnimation(pickInactivePath(), className);
     }
 
+
     var pulseColor = 0;
 
     function addAnimationPulse() {
-        var className = 'animating-pulse';
+        var className = 'animating-pulse-red';
         if (pulseColor === 0) {
             className = 'animating-pulse-blue';
         } if (pulseColor === 1) {
-            className = 'animating-pulse-green';
+            className = 'animating-pulse-purple';
         }
         pulseColor++;
         if (pulseColor > 2) {
@@ -170,19 +179,120 @@ $(document).ready(function() {
         }
     });
 
+    var timeoutAmount = 1.5;
+
+    document.addEventListener('mousemove', function(e) {
+        var py = 1 - ((e.clientY)/ window.innerHeight);
+        var timeMax = 3.0;
+        var timeMin = 0.5;
+        console.log(timeoutAmount);
+        timeoutAmount =  ((timeMax - timeMin) * py) + timeMin;
+    });
+
+    function getTimeoutAmount() {
+        return timeoutAmount;
+    }
+
+    function addAnimationLineVariableTime(animationTime, isVarient) {
+        var pathNumber = pickInactivePath();
+        var path = $('.shape-' + pathNumber);
+        var length = path[0].getTotalLength();
+        var animationType = 'lineDrawPulse-' + pathNumber;
+        if (isVarient) {
+            animationType = 'lineDrawPulseVar2-' + pathNumber;
+        }
+        var adjustedAnimationTime = (length * animationTime) / 1000;
+        var animation = animationType + ' ' + adjustedAnimationTime + 's infinite linear';
+        path.css({
+            animation: animation,
+            'stroke-dashoffset': (Math.random()*length)
+        });
+        console.log(animation);
+        setTimeout(function() {
+            path.css('animation', 'none');
+            clearActivePath(pathNumber);
+        }, adjustedAnimationTime * 1000);
+    }
+
+    function coordinateVariableLine(timeoutAmount) {
+        setTimeout(function() {
+            addAnimationLineVariableTime(timeoutAmount, false);
+            coordinateVariableLine(getTimeoutAmount());
+        }, timeoutAmount * 1000);
+    }
+
+    function coordinateVariableLineVarient(timeoutAmount) {
+        setTimeout(function() {
+            addAnimationLineVariableTime(timeoutAmount, true);
+            coordinateVariableLineVarient(getTimeoutAmount() * 1.25);
+        }, timeoutAmount * 1000);
+    }
+
+    function addAnimationPulseVariableTime(animationTime) {
+        var animationType = 'animatePulseRed';
+        if (pulseColor === 0) {
+            animationType = 'animatePulseBlue';
+        } if (pulseColor === 1) {
+            animationType = 'animatePulsePurple';
+        }
+        pulseColor++;
+        if (pulseColor > 2) {
+            pulseColor = 0;
+        }
+        var pathNumber = pickInactivePath();
+        var path = $('.shape-' + pathNumber);
+        var animation = animationType + ' ' + animationTime + 's infinite linear';
+        console.log(animation);
+        path.css({
+            animation: animation
+        });
+        setTimeout(function() {
+            path.css('animation', 'none');
+            clearActivePath(pathNumber);
+        }, animationTime * 1000);
+    }
+
+    function coordinateVariablePulseDouble(timeoutAmount) {
+        setTimeout(function() {
+            addAnimationPulseVariableTime(timeoutAmount);
+            addAnimationPulseVariableTime(timeoutAmount);
+            coordinateVariablePulseDouble(getTimeoutAmount());
+        }, timeoutAmount * 1000);
+    }
+
+    function coordinateVariablePulse(timeoutAmount) {
+        console.log('running pulse')
+        setTimeout(function() {
+            addAnimationPulseVariableTime(timeoutAmount);
+            coordinateVariablePulse(getTimeoutAmount() * 1.5);
+        }, timeoutAmount * 1000);
+    }
+
     if (!INTERACTIVE) {
         switch (MODE) {
+            case VARIBLE_TIME:
+                coordinateVariablePulseDouble(getTimeoutAmount());
+                coordinateVariablePulse(getTimeoutAmount() * 1.5);
+                break;
+            case VARIABLE_LINES:
+                coordinateVariableLine(getTimeoutAmount());
+                coordinateVariableLineVarient(getTimeoutAmount() * 1.5);
+                break;
             case COMBO:
                 addAnimationPulseVar1();
                 setInterval(function() {
                     addAnimationPulseVar1();
-                }, 3500);
+                }, 2700);
                 addAnimationLine();
                 break;
             case PULSE:
                 setInterval(function() {
                   addAnimationPulse();
-                }, 1200);
+                  addAnimationPulse();
+                }, 2000);
+                setInterval(function() {
+                  addAnimationPulse();
+                }, 3600);
                 break;
             case LINE:
                 createRandomLine();

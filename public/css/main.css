@@ -1,0 +1,573 @@
+body {
+  background-color: black; }
+
+.wrapper {
+  width: 75%;
+  margin: 0 auto;
+  position: relative; }
+
+path,
+line {
+  fill: none;
+  stroke: rgba(0, 0, 0, 0);
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-miterlimit: 10;
+  mix-blend-mode: difference; }
+
+.animating-pulse-red {
+  animation: animatePulseRed 2.2s infinite linear; }
+
+.animating-pulse-blue {
+  animation: animatePulseBlue 2.2s infinite linear; }
+
+.animating-pulse-purple {
+  animation: animatePulsePurple 2.2s infinite linear; }
+
+@keyframes animatePulseVar {
+  0% {
+    mix-blend-mode: initial;
+    fill: red; }
+  100% {
+    mix-blend-mode: initial;
+    fill: rgba(255, 0, 0, 0); } }
+
+@keyframes animatePulseRed {
+  0%, 100% {
+    fill: rgba(255, 0, 0, 0); }
+  15%, 85% {
+    fill: red; } }
+
+@keyframes animatePulseBlue {
+  0%, 100% {
+    fill: rgba(0, 0, 255, 0); }
+  15%, 85% {
+    fill: blue; } }
+
+@keyframes animatePulsePurple {
+  0%, 100% {
+    fill: rgba(255, 0, 255, 0); }
+  15%, 85% {
+    fill: magenta; } }
+
+.animating-pulse-var1 {
+  animation: animatePulseVar1 4s infinite linear; }
+
+@keyframes animatePulseVar1 {
+  0%, 100% {
+    fill: rgba(255, 0, 0, 0); }
+  33%, 80% {
+    fill: red; } }
+
+.animating-pulse-var2 {
+  animation: animatePulseVar2 4s infinite linear; }
+
+@keyframes animatePulseVar2 {
+  0%, 100% {
+    fill: rgba(0, 0, 255, 0); }
+  33%, 80% {
+    fill: blue; } }
+
+.animating-strobe-diag-left {
+  mix-blend-mode: initial;
+  animation: strobeDiagLeft 0.59s infinite linear; }
+
+.animating-strobe-half-diag-left {
+  mix-blend-mode: initial;
+  animation: strobeDiagLeft 0.59s infinite linear; }
+
+.animating-strobe-diag-thick {
+  mix-blend-mode: initial;
+  animation: strobeDiagThick 0.59s infinite linear; }
+
+.animating-strobe-half-diag-thick {
+  mix-blend-mode: initial;
+  animation: strobeDiagThick 0.59s infinite linear; }
+
+@keyframes strobeDiagLeft {
+  0%, 100% {
+    fill: url(#diagonal-stripe-left);
+    fill-opacity: 1.0; } }
+
+@keyframes strobeDiagThick {
+  0%, 100% {
+    fill: url(#diagonal-stripe-thick);
+    fill-opacity: 1.0; } }
+
+.animating-strobe-diag-right {
+  mix-blend-mode: initial;
+  animation: strobeDiagRight 0.59s infinite linear; }
+
+.animating-strobe-half-diag-right {
+  mix-blend-mode: initial;
+  animation: strobeDiagRight 0.59s infinite linear; }
+
+@keyframes strobeDiagRight {
+  0%, 100% {
+    fill: url(#diagonal-stripe-right);
+    fill-opacity: 1.0; } }
+
+.animating-1 {
+  animation: lineDrawPulse-1 8.44381s infinite linear; }
+
+@keyframes lineDrawPulse-1 {
+  0%, 100% {
+    stroke: magenta;
+    stroke-dasharray: 0 1266.57214;
+    fill: rgba(255, 0, 255, 0); }
+  25% {
+    stroke: magenta;
+    stroke-dasharray: 1266.57214 0;
+    fill: rgba(255, 0, 255, 0); }
+  40% {
+    stroke: magenta;
+    stroke-dasharray: 1266.57214 0;
+    fill: magenta; }
+  89% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1266.57214 0;
+    fill: magenta; }
+  90% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1266.57214 0;
+    fill: magenta; }
+  100% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1266.57214 0;
+    fill: rgba(255, 0, 255, 0); } }
+
+.animating-2 {
+  animation: lineDrawPulse-2 7.35797s infinite linear; }
+
+@keyframes lineDrawPulse-2 {
+  0%, 100% {
+    stroke: magenta;
+    stroke-dasharray: 0 1103.69592;
+    fill: rgba(255, 0, 255, 0); }
+  25% {
+    stroke: magenta;
+    stroke-dasharray: 1103.69592 0;
+    fill: rgba(255, 0, 255, 0); }
+  40% {
+    stroke: magenta;
+    stroke-dasharray: 1103.69592 0;
+    fill: magenta; }
+  89% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1103.69592 0;
+    fill: magenta; }
+  90% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1103.69592 0;
+    fill: magenta; }
+  100% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1103.69592 0;
+    fill: rgba(255, 0, 255, 0); } }
+
+.animating-3 {
+  animation: lineDrawPulse-3 6.15887s infinite linear; }
+
+@keyframes lineDrawPulse-3 {
+  0%, 100% {
+    stroke: magenta;
+    stroke-dasharray: 0 923.8302;
+    fill: rgba(255, 0, 255, 0); }
+  25% {
+    stroke: magenta;
+    stroke-dasharray: 923.8302 0;
+    fill: rgba(255, 0, 255, 0); }
+  40% {
+    stroke: magenta;
+    stroke-dasharray: 923.8302 0;
+    fill: magenta; }
+  89% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 923.8302 0;
+    fill: magenta; }
+  90% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 923.8302 0;
+    fill: magenta; }
+  100% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 923.8302 0;
+    fill: rgba(255, 0, 255, 0); } }
+
+.animating-4 {
+  animation: lineDrawPulse-4 3.81037s infinite linear; }
+
+@keyframes lineDrawPulse-4 {
+  0%, 100% {
+    stroke: magenta;
+    stroke-dasharray: 0 571.55603;
+    fill: rgba(255, 0, 255, 0); }
+  25% {
+    stroke: magenta;
+    stroke-dasharray: 571.55603 0;
+    fill: rgba(255, 0, 255, 0); }
+  40% {
+    stroke: magenta;
+    stroke-dasharray: 571.55603 0;
+    fill: magenta; }
+  89% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 571.55603 0;
+    fill: magenta; }
+  90% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 571.55603 0;
+    fill: magenta; }
+  100% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 571.55603 0;
+    fill: rgba(255, 0, 255, 0); } }
+
+.animating-5 {
+  animation: lineDrawPulse-5 8.44445s infinite linear; }
+
+@keyframes lineDrawPulse-5 {
+  0%, 100% {
+    stroke: magenta;
+    stroke-dasharray: 0 1266.66699;
+    fill: rgba(255, 0, 255, 0); }
+  25% {
+    stroke: magenta;
+    stroke-dasharray: 1266.66699 0;
+    fill: rgba(255, 0, 255, 0); }
+  40% {
+    stroke: magenta;
+    stroke-dasharray: 1266.66699 0;
+    fill: magenta; }
+  89% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1266.66699 0;
+    fill: magenta; }
+  90% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1266.66699 0;
+    fill: magenta; }
+  100% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1266.66699 0;
+    fill: rgba(255, 0, 255, 0); } }
+
+.animating-6 {
+  animation: lineDrawPulse-6 7.35783s infinite linear; }
+
+@keyframes lineDrawPulse-6 {
+  0%, 100% {
+    stroke: magenta;
+    stroke-dasharray: 0 1103.67432;
+    fill: rgba(255, 0, 255, 0); }
+  25% {
+    stroke: magenta;
+    stroke-dasharray: 1103.67432 0;
+    fill: rgba(255, 0, 255, 0); }
+  40% {
+    stroke: magenta;
+    stroke-dasharray: 1103.67432 0;
+    fill: magenta; }
+  89% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1103.67432 0;
+    fill: magenta; }
+  90% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1103.67432 0;
+    fill: magenta; }
+  100% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 1103.67432 0;
+    fill: rgba(255, 0, 255, 0); } }
+
+.animating-7 {
+  animation: lineDrawPulse-7 6.15903s infinite linear; }
+
+@keyframes lineDrawPulse-7 {
+  0%, 100% {
+    stroke: magenta;
+    stroke-dasharray: 0 923.85468;
+    fill: rgba(255, 0, 255, 0); }
+  25% {
+    stroke: magenta;
+    stroke-dasharray: 923.85468 0;
+    fill: rgba(255, 0, 255, 0); }
+  40% {
+    stroke: magenta;
+    stroke-dasharray: 923.85468 0;
+    fill: magenta; }
+  89% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 923.85468 0;
+    fill: magenta; }
+  90% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 923.85468 0;
+    fill: magenta; }
+  100% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 923.85468 0;
+    fill: rgba(255, 0, 255, 0); } }
+
+.animating-8 {
+  animation: lineDrawPulse-8 3.81024s infinite linear; }
+
+@keyframes lineDrawPulse-8 {
+  0%, 100% {
+    stroke: magenta;
+    stroke-dasharray: 0 571.53577;
+    fill: rgba(255, 0, 255, 0); }
+  25% {
+    stroke: magenta;
+    stroke-dasharray: 571.53577 0;
+    fill: rgba(255, 0, 255, 0); }
+  40% {
+    stroke: magenta;
+    stroke-dasharray: 571.53577 0;
+    fill: magenta; }
+  89% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 571.53577 0;
+    fill: magenta; }
+  90% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 571.53577 0;
+    fill: magenta; }
+  100% {
+    stroke: rgba(255, 0, 255, 0);
+    stroke-dasharray: 571.53577 0;
+    fill: rgba(255, 0, 255, 0); } }
+
+.animating-var2-1 {
+  animation: lineDrawPulseVar2-1 8.44381s infinite linear; }
+
+@keyframes lineDrawPulseVar2-1 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 1266.57214;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 1266.57214 0;
+    fill: rgba(255, 0, 0, 0); }
+  40% {
+    stroke: red;
+    stroke-dasharray: 1266.57214 0;
+    fill: red; }
+  89% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1266.57214 0;
+    fill: red; }
+  90% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1266.57214 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1266.57214 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-var2-2 {
+  animation: lineDrawPulseVar2-2 7.35797s infinite linear; }
+
+@keyframes lineDrawPulseVar2-2 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 1103.69592;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 1103.69592 0;
+    fill: rgba(255, 0, 0, 0); }
+  40% {
+    stroke: red;
+    stroke-dasharray: 1103.69592 0;
+    fill: red; }
+  89% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1103.69592 0;
+    fill: red; }
+  90% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1103.69592 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1103.69592 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-var2-3 {
+  animation: lineDrawPulseVar2-3 6.15887s infinite linear; }
+
+@keyframes lineDrawPulseVar2-3 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 923.8302;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 923.8302 0;
+    fill: rgba(255, 0, 0, 0); }
+  40% {
+    stroke: red;
+    stroke-dasharray: 923.8302 0;
+    fill: red; }
+  89% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 923.8302 0;
+    fill: red; }
+  90% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 923.8302 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 923.8302 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-var2-4 {
+  animation: lineDrawPulseVar2-4 3.81037s infinite linear; }
+
+@keyframes lineDrawPulseVar2-4 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 571.55603;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 571.55603 0;
+    fill: rgba(255, 0, 0, 0); }
+  40% {
+    stroke: red;
+    stroke-dasharray: 571.55603 0;
+    fill: red; }
+  89% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 571.55603 0;
+    fill: red; }
+  90% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 571.55603 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 571.55603 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-var2-5 {
+  animation: lineDrawPulseVar2-5 8.44445s infinite linear; }
+
+@keyframes lineDrawPulseVar2-5 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 1266.66699;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 1266.66699 0;
+    fill: rgba(255, 0, 0, 0); }
+  40% {
+    stroke: red;
+    stroke-dasharray: 1266.66699 0;
+    fill: red; }
+  89% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1266.66699 0;
+    fill: red; }
+  90% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1266.66699 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1266.66699 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-var2-6 {
+  animation: lineDrawPulseVar2-6 7.35783s infinite linear; }
+
+@keyframes lineDrawPulseVar2-6 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 1103.67432;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 1103.67432 0;
+    fill: rgba(255, 0, 0, 0); }
+  40% {
+    stroke: red;
+    stroke-dasharray: 1103.67432 0;
+    fill: red; }
+  89% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1103.67432 0;
+    fill: red; }
+  90% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1103.67432 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 1103.67432 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-var2-7 {
+  animation: lineDrawPulseVar2-7 6.15903s infinite linear; }
+
+@keyframes lineDrawPulseVar2-7 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 923.85468;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 923.85468 0;
+    fill: rgba(255, 0, 0, 0); }
+  40% {
+    stroke: red;
+    stroke-dasharray: 923.85468 0;
+    fill: red; }
+  89% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 923.85468 0;
+    fill: red; }
+  90% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 923.85468 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 923.85468 0;
+    fill: rgba(255, 0, 0, 0); } }
+
+.animating-var2-8 {
+  animation: lineDrawPulseVar2-8 3.81024s infinite linear; }
+
+@keyframes lineDrawPulseVar2-8 {
+  0%, 100% {
+    stroke: red;
+    stroke-dasharray: 0 571.53577;
+    fill: rgba(255, 0, 0, 0); }
+  25% {
+    stroke: red;
+    stroke-dasharray: 571.53577 0;
+    fill: rgba(255, 0, 0, 0); }
+  40% {
+    stroke: red;
+    stroke-dasharray: 571.53577 0;
+    fill: red; }
+  89% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 571.53577 0;
+    fill: red; }
+  90% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 571.53577 0;
+    fill: red; }
+  100% {
+    stroke: rgba(255, 0, 0, 0);
+    stroke-dasharray: 571.53577 0;
+    fill: rgba(255, 0, 0, 0); } }
