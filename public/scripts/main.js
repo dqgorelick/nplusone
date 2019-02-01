@@ -216,15 +216,15 @@ $(document).ready(function() {
 
     function coordinateVariableLine(timeoutAmount) {
         setTimeout(function() {
-            addAnimationLineVariableTime(timeoutAmount, false);
+            addAnimationLineVariableTime(timeoutAmount, true);
             coordinateVariableLine(getTimeoutAmount());
         }, timeoutAmount * 1000);
     }
 
     function coordinateVariableLineVarient(timeoutAmount) {
         setTimeout(function() {
-            addAnimationLineVariableTime(timeoutAmount, true);
-            coordinateVariableLineVarient(getTimeoutAmount() * 1.25);
+            addAnimationLineVariableTime(timeoutAmount, false);
+            coordinateVariableLineVarient(getTimeoutAmount() * 1.75);
         }, timeoutAmount * 1000);
     }
 
@@ -252,6 +252,30 @@ $(document).ready(function() {
         }, animationTime * 1000);
     }
 
+    function addAnimationPulseVariableTimeCombo(animationTime) {
+        var animationType = 'animatePulseBlue';
+        if (pulseColor === 1) {
+            animationType = 'animatePulseRed';
+        } if (pulseColor === 2) {
+            animationType = 'animatePulsePurple';
+        }
+        pulseColor++;
+        if (pulseColor > 0) {
+            pulseColor = 0;
+        }
+        var pathNumber = pickInactivePath();
+        var path = $('.shape-' + pathNumber);
+        var animation = animationType + ' ' + animationTime + 's infinite linear';
+        console.log(animation);
+        path.css({
+            animation: animation
+        });
+        setTimeout(function() {
+            path.css('animation', 'none');
+            clearActivePath(pathNumber);
+        }, animationTime * 1000);
+    }
+
     function coordinateVariablePulseDouble(timeoutAmount) {
         setTimeout(function() {
             addAnimationPulseVariableTime(timeoutAmount);
@@ -261,10 +285,16 @@ $(document).ready(function() {
     }
 
     function coordinateVariablePulse(timeoutAmount) {
-        console.log('running pulse')
         setTimeout(function() {
-            addAnimationPulseVariableTime(timeoutAmount);
-            coordinateVariablePulse(getTimeoutAmount() * 1.5);
+            addAnimationPulseVariableTime(timeoutAmount / 2);
+            coordinateVariablePulse(getTimeoutAmount() * 3);
+        }, timeoutAmount * 1000);
+    }
+
+    function coordinateVariablePulseCombo(timeoutAmount) {
+        setTimeout(function() {
+            addAnimationPulseVariableTimeCombo(timeoutAmount / 2);
+            coordinateVariablePulseCombo(getTimeoutAmount() * 3);
         }, timeoutAmount * 1000);
     }
 
@@ -272,11 +302,12 @@ $(document).ready(function() {
         switch (MODE) {
             case VARIBLE_TIME:
                 coordinateVariablePulseDouble(getTimeoutAmount());
-                coordinateVariablePulse(getTimeoutAmount() * 1.5);
+                coordinateVariablePulse(getTimeoutAmount() * 3);
                 break;
             case VARIABLE_LINES:
                 coordinateVariableLine(getTimeoutAmount());
-                coordinateVariableLineVarient(getTimeoutAmount() * 1.5);
+                coordinateVariableLineVarient(getTimeoutAmount() * 1.75);
+                coordinateVariablePulseCombo(getTimeoutAmount() * 3);
                 break;
             case COMBO:
                 addAnimationPulseVar1();
