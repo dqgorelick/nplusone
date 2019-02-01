@@ -27,7 +27,7 @@ path,
 line {
   fill: none;
   stroke: rgba(0, 0, 0, 0);
-  stroke-width: 4;
+  stroke-width: 9;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-miterlimit: 10;
@@ -183,13 +183,13 @@ line {
         stroke-dasharray: #{$length} 0;
         fill: rgba(256,0,0,1);
       }
-      89% {
-        stroke: rgba(256,0,0,0);
-        stroke-dasharray: #{$length} 0;
-        fill: rgba(256,0,0,1);
-      }
+      // 89% {
+      //   stroke: rgba(256,0,0,0);
+      //   stroke-dasharray: #{$length} 0;
+      //   fill: rgba(256,0,0,1);
+      // }
       90% {
-        stroke: rgba(256,0,0,0);
+        stroke: rgba(256,0,0,1);
         stroke-dasharray: #{$length} 0;
         fill: rgba(256,0,0,1);
       }
@@ -224,13 +224,13 @@ line {
         stroke-dasharray: #{$length} 0;
         fill: rgba(256,0,256,1);
       }
-      89% {
-        stroke: rgba(256,0,256,0);
-        stroke-dasharray: #{$length} 0;
-        fill: rgba(256,0,256,1);
-      }
+      // 89% {
+      //   stroke: rgba(256,0,256,0);
+      //   stroke-dasharray: #{$length} 0;
+      //   fill: rgba(256,0,256,1);
+      // }
       90% {
-        stroke: rgba(256,0,256,0);
+        stroke: rgba(256,0,256,1);
         stroke-dasharray: #{$length} 0;
         fill: rgba(256,0,256,1);
       }

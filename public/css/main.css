@@ -10,7 +10,7 @@ path,
 line {
   fill: none;
   stroke: rgba(0, 0, 0, 0);
-  stroke-width: 4;
+  stroke-width: 9;
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-miterlimit: 10;
@@ -124,12 +124,8 @@ line {
     stroke: magenta;
     stroke-dasharray: 1266.57214 0;
     fill: magenta; }
-  89% {
-    stroke: rgba(255, 0, 255, 0);
-    stroke-dasharray: 1266.57214 0;
-    fill: magenta; }
   90% {
-    stroke: rgba(255, 0, 255, 0);
+    stroke: magenta;
     stroke-dasharray: 1266.57214 0;
     fill: magenta; }
   100% {
@@ -153,12 +149,8 @@ line {
     stroke: magenta;
     stroke-dasharray: 1103.69592 0;
     fill: magenta; }
-  89% {
-    stroke: rgba(255, 0, 255, 0);
-    stroke-dasharray: 1103.69592 0;
-    fill: magenta; }
   90% {
-    stroke: rgba(255, 0, 255, 0);
+    stroke: magenta;
     stroke-dasharray: 1103.69592 0;
     fill: magenta; }
   100% {
@@ -182,12 +174,8 @@ line {
     stroke: magenta;
     stroke-dasharray: 923.8302 0;
     fill: magenta; }
-  89% {
-    stroke: rgba(255, 0, 255, 0);
-    stroke-dasharray: 923.8302 0;
-    fill: magenta; }
   90% {
-    stroke: rgba(255, 0, 255, 0);
+    stroke: magenta;
     stroke-dasharray: 923.8302 0;
     fill: magenta; }
   100% {
@@ -211,12 +199,8 @@ line {
     stroke: magenta;
     stroke-dasharray: 571.55603 0;
     fill: magenta; }
-  89% {
-    stroke: rgba(255, 0, 255, 0);
-    stroke-dasharray: 571.55603 0;
-    fill: magenta; }
   90% {
-    stroke: rgba(255, 0, 255, 0);
+    stroke: magenta;
     stroke-dasharray: 571.55603 0;
     fill: magenta; }
   100% {
@@ -240,12 +224,8 @@ line {
     stroke: magenta;
     stroke-dasharray: 1266.66699 0;
     fill: magenta; }
-  89% {
-    stroke: rgba(255, 0, 255, 0);
-    stroke-dasharray: 1266.66699 0;
-    fill: magenta; }
   90% {
-    stroke: rgba(255, 0, 255, 0);
+    stroke: magenta;
     stroke-dasharray: 1266.66699 0;
     fill: magenta; }
   100% {
@@ -269,12 +249,8 @@ line {
     stroke: magenta;
     stroke-dasharray: 1103.67432 0;
     fill: magenta; }
-  89% {
-    stroke: rgba(255, 0, 255, 0);
-    stroke-dasharray: 1103.67432 0;
-    fill: magenta; }
   90% {
-    stroke: rgba(255, 0, 255, 0);
+    stroke: magenta;
     stroke-dasharray: 1103.67432 0;
     fill: magenta; }
   100% {
@@ -298,12 +274,8 @@ line {
     stroke: magenta;
     stroke-dasharray: 923.85468 0;
     fill: magenta; }
-  89% {
-    stroke: rgba(255, 0, 255, 0);
-    stroke-dasharray: 923.85468 0;
-    fill: magenta; }
   90% {
-    stroke: rgba(255, 0, 255, 0);
+    stroke: magenta;
     stroke-dasharray: 923.85468 0;
     fill: magenta; }
   100% {
@@ -327,12 +299,8 @@ line {
     stroke: magenta;
     stroke-dasharray: 571.53577 0;
     fill: magenta; }
-  89% {
-    stroke: rgba(255, 0, 255, 0);
-    stroke-dasharray: 571.53577 0;
-    fill: magenta; }
   90% {
-    stroke: rgba(255, 0, 255, 0);
+    stroke: magenta;
     stroke-dasharray: 571.53577 0;
     fill: magenta; }
   100% {
@@ -356,12 +324,8 @@ line {
     stroke: red;
     stroke-dasharray: 1266.57214 0;
     fill: red; }
-  89% {
-    stroke: rgba(255, 0, 0, 0);
-    stroke-dasharray: 1266.57214 0;
-    fill: red; }
   90% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: red;
     stroke-dasharray: 1266.57214 0;
     fill: red; }
   100% {
@@ -385,12 +349,8 @@ line {
     stroke: red;
     stroke-dasharray: 1103.69592 0;
     fill: red; }
-  89% {
-    stroke: rgba(255, 0, 0, 0);
-    stroke-dasharray: 1103.69592 0;
-    fill: red; }
   90% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: red;
     stroke-dasharray: 1103.69592 0;
     fill: red; }
   100% {
@@ -414,12 +374,8 @@ line {
     stroke: red;
     stroke-dasharray: 923.8302 0;
     fill: red; }
-  89% {
-    stroke: rgba(255, 0, 0, 0);
-    stroke-dasharray: 923.8302 0;
-    fill: red; }
   90% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: red;
     stroke-dasharray: 923.8302 0;
     fill: red; }
   100% {
@@ -443,12 +399,8 @@ line {
     stroke: red;
     stroke-dasharray: 571.55603 0;
     fill: red; }
-  89% {
-    stroke: rgba(255, 0, 0, 0);
-    stroke-dasharray: 571.55603 0;
-    fill: red; }
   90% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: red;
     stroke-dasharray: 571.55603 0;
     fill: red; }
   100% {
@@ -472,12 +424,8 @@ line {
     stroke: red;
     stroke-dasharray: 1266.66699 0;
     fill: red; }
-  89% {
-    stroke: rgba(255, 0, 0, 0);
-    stroke-dasharray: 1266.66699 0;
-    fill: red; }
   90% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: red;
     stroke-dasharray: 1266.66699 0;
     fill: red; }
   100% {
@@ -501,12 +449,8 @@ line {
     stroke: red;
     stroke-dasharray: 1103.67432 0;
     fill: red; }
-  89% {
-    stroke: rgba(255, 0, 0, 0);
-    stroke-dasharray: 1103.67432 0;
-    fill: red; }
   90% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: red;
     stroke-dasharray: 1103.67432 0;
     fill: red; }
   100% {
@@ -530,12 +474,8 @@ line {
     stroke: red;
     stroke-dasharray: 923.85468 0;
     fill: red; }
-  89% {
-    stroke: rgba(255, 0, 0, 0);
-    stroke-dasharray: 923.85468 0;
-    fill: red; }
   90% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: red;
     stroke-dasharray: 923.85468 0;
     fill: red; }
   100% {
@@ -559,12 +499,8 @@ line {
     stroke: red;
     stroke-dasharray: 571.53577 0;
     fill: red; }
-  89% {
-    stroke: rgba(255, 0, 0, 0);
-    stroke-dasharray: 571.53577 0;
-    fill: red; }
   90% {
-    stroke: rgba(255, 0, 0, 0);
+    stroke: red;
     stroke-dasharray: 571.53577 0;
     fill: red; }
   100% {
