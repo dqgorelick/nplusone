@@ -1,13 +1,16 @@
-$(document).ready(function() {
+// $(document).ready(function() {
     var COMBO = 'combo'
     var PULSE = 'PULSE';
     var LINE = 'LINE';
     var STROBE = 'STROBE';
     var STROBE2 = 'STROBE2';
-    var VARIBLE_TIME = 'VARIBLE_TIME';
+    var VARIABLE_TIME = 'VARIABLE_TIME';
     var VARIABLE_LINES = 'VARIABLE_LINES';
-    var MODES = [COMBO, PULSE, LINE, STROBE, STROBE2];
-    var MODE = COMBO;
+    var SEQUENCE = 'SEQUENCE';
+    var MODES = [COMBO, PULSE, LINE, STROBE, STROBE2, SEQUENCE];
+    // var ACTIVE_MODES = [VARIABLE_LINES, VARIABLE_TIME];
+    var ACTIVE_MODES = [VARIABLE_TIME,VARIABLE_LINES];
+    var MODE = VARIABLE_TIME;
 
     var INTERACTIVE = false;
     var PATH_NUMBER = 8;
@@ -16,8 +19,11 @@ $(document).ready(function() {
     var mode = urlParams.get('mode');
     if (mode) {
         switch (mode) {
+            case 'live':
+                MODE = SEQUENCE;
+                break;
             case 'changing':
-                MODE = VARIBLE_TIME;
+                MODE = VARIABLE_TIME;
                 break;
             case 'lines':
                 MODE = VARIABLE_LINES;
@@ -45,6 +51,7 @@ $(document).ready(function() {
     console.log('MODE', MODE);
 
     var active = { 1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false };
+    var initialActive = active;
 
     function pickInactivePath() {
         var pathNumber = Math.ceil(Math.random() * PATH_NUMBER);
@@ -179,18 +186,24 @@ $(document).ready(function() {
         }
     });
 
-    var timeoutAmount = 1.5;
-
-    document.addEventListener('mousemove', function(e) {
-        var py = 1 - ((e.clientY)/ window.innerHeight);
-        var timeMax = 3.0;
-        var timeMin = 0.5;
-        console.log(timeoutAmount);
-        timeoutAmount =  ((timeMax - timeMin) * py) + timeMin;
-    });
+    // var timeoutAmount = 1.5;
+    // document.addEventListener('mousemove', function(e) {
+    //     var py = 1 - ((e.clientY)/ window.innerHeight);
+    //     var timeMax = 3.0;
+    //     var timeMin = 0.5;
+    //     console.log(timeoutAmount);
+    //     timeoutAmount =  ((timeMax - timeMin) * py) + timeMin;
+    // });
 
     function getTimeoutAmount() {
-        return timeoutAmount;
+        var timeMax = 3.0;
+        var timeMin = 1.5;
+        var percentage = 1 - (currentIterationsCount / maxIterations);
+        if (currentMode === VARIABLE_LINES) {
+            timeMax = 5.5;
+            timeMin = 2.8;
+        }
+        return timeMin + percentage * (timeMax - timeMin);
     }
 
     function addAnimationLineVariableTime(animationTime, isVarient) {
@@ -202,6 +215,9 @@ $(document).ready(function() {
             animationType = 'lineDrawPulseVar2-' + pathNumber;
         }
         var adjustedAnimationTime = (length * animationTime) / 1000;
+        if (getTimeoutAmount() < adjustedAnimationTime) {
+            adjustedAnimationTime = getTimeoutAmount();
+        }
         var animation = animationType + ' ' + adjustedAnimationTime + 's infinite linear';
         path.css({
             animation: animation,
@@ -212,20 +228,6 @@ $(document).ready(function() {
             path.css('animation', 'none');
             clearActivePath(pathNumber);
         }, adjustedAnimationTime * 1000);
-    }
-
-    function coordinateVariableLine(timeoutAmount) {
-        setTimeout(function() {
-            addAnimationLineVariableTime(timeoutAmount, true);
-            coordinateVariableLine(getTimeoutAmount());
-        }, timeoutAmount * 1000);
-    }
-
-    function coordinateVariableLineVarient(timeoutAmount) {
-        setTimeout(function() {
-            addAnimationLineVariableTime(timeoutAmount, false);
-            coordinateVariableLineVarient(getTimeoutAmount() * 1.75);
-        }, timeoutAmount * 1000);
     }
 
     function addAnimationPulseVariableTime(animationTime) {
@@ -253,9 +255,9 @@ $(document).ready(function() {
     }
 
     function addAnimationPulseVariableTimeCombo(animationTime) {
-        var animationType = 'animatePulseBlue';
+        var animationType = 'animatePulseRed';
         if (pulseColor === 1) {
-            animationType = 'animatePulseRed';
+            animationType = 'animatePulseBlue';
         } if (pulseColor === 2) {
             animationType = 'animatePulsePurple';
         }
@@ -277,7 +279,9 @@ $(document).ready(function() {
     }
 
     function coordinateVariablePulseDouble(timeoutAmount) {
-        setTimeout(function() {
+        if (!checkIfCurrentMode(VARIABLE_TIME)) return;
+        pulseTimeout1 = setTimeout(function() {
+            checkModeChange();
             addAnimationPulseVariableTime(timeoutAmount);
             addAnimationPulseVariableTime(timeoutAmount);
             coordinateVariablePulseDouble(getTimeoutAmount());
@@ -285,29 +289,113 @@ $(document).ready(function() {
     }
 
     function coordinateVariablePulse(timeoutAmount) {
-        setTimeout(function() {
-            addAnimationPulseVariableTime(timeoutAmount / 2);
+        if (!checkIfCurrentMode(VARIABLE_TIME)) return;
+        pulseTimeout2 = setTimeout(function() {
+            addAnimationPulseVariableTime(timeoutAmount / 3);
             coordinateVariablePulse(getTimeoutAmount() * 3);
         }, timeoutAmount * 1000);
     }
 
     function coordinateVariablePulseCombo(timeoutAmount) {
-        setTimeout(function() {
+        if (!checkIfCurrentMode(VARIABLE_LINES)) return;
+        linesTimeout2 = setTimeout(function() {
             addAnimationPulseVariableTimeCombo(timeoutAmount / 2);
             coordinateVariablePulseCombo(getTimeoutAmount() * 3);
         }, timeoutAmount * 1000);
     }
 
+    function coordinateVariableLine(timeoutAmount) {
+        if (!checkIfCurrentMode(VARIABLE_LINES)) return;
+        checkModeChange();
+        linesTimeout3 = setTimeout(function() {
+            addAnimationLineVariableTime(timeoutAmount, true);
+            coordinateVariableLine(getTimeoutAmount());
+        }, timeoutAmount * 1000);
+    }
+
+    function coordinateVariableLineVarient(timeoutAmount) {
+        if (!checkIfCurrentMode(VARIABLE_LINES)) return;
+        setTimeout(function() {
+            addAnimationLineVariableTime(timeoutAmount, false);
+            coordinateVariableLineVarient(getTimeoutAmount() * 1.75);
+        }, timeoutAmount * 1000);
+    }
+
+    var linesTimeout1, linesTimeout2, linesTimeout3;
+    function startLines() {
+        linesTimeout1 = coordinateVariableLine(getTimeoutAmount());
+        linesTimeout2 = coordinateVariableLineVarient(getTimeoutAmount() * 1.75);
+        linesTimeout3 = coordinateVariablePulseCombo(getTimeoutAmount() * 3);
+    }
+    function stopLines() {
+        clearTimeout(linesTimeout1);
+        clearTimeout(linesTimeout2);
+        clearTimeout(linesTimeout3);
+    }
+
+    var pulseTimeout1, pulseTimeout2;
+    function startPulse() {
+        pulseTimeout1 = coordinateVariablePulseDouble(getTimeoutAmount());
+        pulseTimeout2 = coordinateVariablePulse(getTimeoutAmount() * 3);
+    }
+
+    function stopPulse() {
+        clearTimeout(pulseTimeout1);
+        clearTimeout(pulseTimeout2);
+    }
+
+
+    var maxIterations = 25;
+    function checkModeChange() {
+        currentIterationsCount++;
+        console.log('iteration:', currentIterationsCount);
+        if (currentIterationsCount > maxIterations) {
+            console.log('CHANGING MODES');
+            changeMode();
+        }
+    }
+    var currentModeIndex = 0;
+    var currentIterationsCount = 0;
+    var currentMode = ACTIVE_MODES[currentModeIndex];
+    function checkIfCurrentMode(mode) {
+        return currentMode === mode;
+    }
+
+    function changeMode() {
+        currentModeIndex++;
+        currentIterationsCount = 0;
+        stopLines();
+        stopPulse();
+        active = initialActive;
+        if (currentModeIndex >= ACTIVE_MODES.length) {
+            currentModeIndex = 0;
+        }
+        currentMode = ACTIVE_MODES[currentModeIndex];
+        console.log('current mode!', currentMode);
+        if (currentMode === VARIABLE_TIME) {
+            startPulse();
+        } else if (currentMode === VARIABLE_LINES) {
+            startLines();
+        }
+    }
+
+    // document.addEventListener('mousedown', function() {
+    //     changeMode();
+    // });
+
+
     if (!INTERACTIVE) {
         switch (MODE) {
-            case VARIBLE_TIME:
-                coordinateVariablePulseDouble(getTimeoutAmount());
-                coordinateVariablePulse(getTimeoutAmount() * 3);
+            case SEQUENCE:
+                currentMode = ACTIVE_MODES[currentModeIndex];
+                console.log('currentMode', currentMode);
+                changeMode();
+                break;
+            case VARIABLE_TIME:
+                startPulse();
                 break;
             case VARIABLE_LINES:
-                coordinateVariableLine(getTimeoutAmount());
-                coordinateVariableLineVarient(getTimeoutAmount() * 1.75);
-                coordinateVariablePulseCombo(getTimeoutAmount() * 3);
+                startLines();
                 break;
             case COMBO:
                 addAnimationPulseVar1();
@@ -349,4 +437,4 @@ $(document).ready(function() {
                 break;
         }
     }
-});
+// });

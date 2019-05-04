@@ -6,7 +6,7 @@ $pulse-interval-var1: 4.0s;
 $pulse-interval: 2.2s;
 $strobe-interval: 0.59s;
 
-$timeFactor: 1.5;
+$timeFactor: 1;
 
 $length-1: 1266.5721435546875;
 $length-2: 1103.6959228515625;
@@ -18,7 +18,7 @@ $length-7: 923.8546752929688;
 $length-8: 571.5357666015625;
 
 .wrapper {
-  width: 65%;
+  width: 67%;
   margin: 0 auto;
   position: relative;
 }
@@ -35,15 +35,15 @@ line {
 }
 
 .animating-pulse-red {
-  animation: animatePulseRed $pulse-interval infinite linear;
+  animation: animatePulseRed $pulse-interval infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .animating-pulse-blue {
-  animation: animatePulseBlue $pulse-interval infinite linear;
+  animation: animatePulseBlue $pulse-interval infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .animating-pulse-purple {
-  animation: animatePulsePurple $pulse-interval infinite linear;
+  animation: animatePulsePurple $pulse-interval infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 @keyframes animatePulseVar {
@@ -85,7 +85,7 @@ line {
 }
 
 .animating-pulse-var1 {
-  animation: animatePulseVar1 $pulse-interval-var1 infinite linear;
+  animation: animatePulseVar1 $pulse-interval-var1 infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 @keyframes animatePulseVar1 {
@@ -98,7 +98,7 @@ line {
 }
 
 .animating-pulse-var2 {
-  animation: animatePulseVar2 $pulse-interval-var1 infinite linear;
+  animation: animatePulseVar2 $pulse-interval-var1 infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 @keyframes animatePulseVar2 {
@@ -113,22 +113,22 @@ line {
 
 .animating-strobe-diag-left {
   mix-blend-mode: initial;
-  animation: strobeDiagLeft $strobe-interval infinite linear;
+  animation: strobeDiagLeft $strobe-interval infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .animating-strobe-half-diag-left {
   mix-blend-mode: initial;
-  animation: strobeDiagLeft #{$strobe-interval} infinite linear;
+  animation: strobeDiagLeft #{$strobe-interval} infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .animating-strobe-diag-thick {
   mix-blend-mode: initial;
-  animation: strobeDiagThick $strobe-interval infinite linear;
+  animation: strobeDiagThick $strobe-interval infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .animating-strobe-half-diag-thick {
   mix-blend-mode: initial;
-  animation: strobeDiagThick #{$strobe-interval} infinite linear;
+  animation: strobeDiagThick #{$strobe-interval} infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 @keyframes strobeDiagLeft {
@@ -147,12 +147,12 @@ line {
 
 .animating-strobe-diag-right {
   mix-blend-mode: initial;
-  animation: strobeDiagRight $strobe-interval infinite linear;
+  animation: strobeDiagRight $strobe-interval infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .animating-strobe-half-diag-right {
   mix-blend-mode: initial;
-  animation: strobeDiagRight #{$strobe-interval} infinite linear;
+  animation: strobeDiagRight #{$strobe-interval} infinite cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 @keyframes strobeDiagRight {
@@ -164,39 +164,39 @@ line {
 
 @mixin linePulseVar2($id, $length) {
   .animating-var2-#{$id} {
-    animation: lineDrawPulseVar2-#{$id} #{$length/(100 * $timeFactor)}s infinite linear;
+    animation: lineDrawPulseVar2-#{$id} #{$length/(100 * $timeFactor)}s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   @keyframes lineDrawPulseVar2-#{$id} {
       0%, 100% {
-        stroke: rgba(256,0,0,1);
+        stroke: rgba(0,0,256,1);
         stroke-dasharray: 0 #{$length};
-        fill: rgba(256,0,0,0);
+        fill: rgba(0,0,256,0);
       }
       25% {
-        stroke: rgba(256,0,0,1);
+        stroke: rgba(0,0,256,1);
         stroke-dasharray: #{$length} 0;
-        fill: rgba(256,0,0,0);
+        fill: rgba(0,0,256,0);
       }
       40% {
-        stroke: rgba(256,0,0,1);
+        stroke: rgba(0,0,256,1);
         stroke-dasharray: #{$length} 0;
-        fill: rgba(256,0,0,1);
+        fill: rgba(0,0,256,1);
       }
       // 89% {
-      //   stroke: rgba(256,0,0,0);
+      //   stroke: rgba(0,0,256,0);
       //   stroke-dasharray: #{$length} 0;
-      //   fill: rgba(256,0,0,1);
+      //   fill: rgba(0,0,256,1);
       // }
       90% {
-        stroke: rgba(256,0,0,1);
+        stroke: rgba(0,0,256,1);
         stroke-dasharray: #{$length} 0;
-        fill: rgba(256,0,0,1);
+        fill: rgba(0,0,256,1);
       }
       100% {
-        stroke: rgba(256,0,0,0);
+        stroke: rgba(0,0,256,0);
         stroke-dasharray: #{$length} 0;
-        fill: rgba(256,0,0,0);
+        fill: rgba(0,0,256,0);
       }
   }
 }
@@ -205,7 +205,7 @@ line {
 
 @mixin linePulse($id, $length) {
   .animating-#{$id} {
-    animation: lineDrawPulse-#{$id} #{$length/(100 * $timeFactor)}s infinite linear;
+    animation: lineDrawPulse-#{$id} #{$length/(100 * $timeFactor)}s infinite cubic-bezier(0.215, 0.61, 0.355, 1);
   }
 
   @keyframes lineDrawPulse-#{$id} {
